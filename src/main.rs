@@ -206,7 +206,7 @@ fn tweet_meme<'a>(status: &'a str, media: &'a str) {
 #[tokio::main]
 async fn main() {
     // 30 mins interval
-    let wait_time = Duration::from_millis(1800000);
+    let wait_time = Duration::from_millis(1500000);
     loop {
         // for logging events
         let now = Utc::now();
@@ -222,10 +222,9 @@ async fn main() {
 
         if let Some(remaining) = wait_time.checked_sub(runtime) {
             let mut rng = rand::thread_rng();
-            let random: usize = rng.gen_range(0..4);
+            let random: usize = rng.gen_range(0..3);
             const TOPICS: &'static [&'static str] = &[
                 "programming_memes",
-                "anime_memes",
                 "linux_memes",
                 "programminghumor",
             ];
